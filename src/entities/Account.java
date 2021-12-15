@@ -57,4 +57,15 @@ public class Account {
     public void withdraw(double amount) {
         balance -= amount;
     }
+        // A lógica de negócio deve estar na classe correspondente
+
+    public String validateWithdraw(double amount) {
+        if (amount > getWithdrawLimit()) {
+            return "Erro de saque: A quantia excede o limite de saque.";
+        }
+        if (amount > getBalance()) {
+            return "Erro de saque: Saldo insuficiente.";
+        }
+        return null;
+    }
 }
